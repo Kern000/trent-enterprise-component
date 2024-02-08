@@ -7,13 +7,14 @@ let formPage = document.querySelector("#crud-form");
 let toggleAddForm = document.querySelector("#add-form-btn");
 let confirmBtn = document.querySelector("#confirm-add-btn");
 let notificationContainer = document.querySelector("#notification-container");
+let mainEventRender = document.querySelector("#calendar-wrapper");
 // let flatpickr = document.querySelector("date-picker");
 
 // on load
 let onLoadFlatPickr = document.addEventListener("DOMContentLoaded", function(){
     flatpickr("#date-picker");
+    renderList();    
 })
-
 
 // Input form display
 function toggleAddStatus (){
@@ -40,9 +41,6 @@ function handleForm(){
     toggleAddStatus();
     toggleAddFormIndicator();
     renderAddForm();
-
-    console.log("handleform here");
-    console.log("toggle add", toggleAdd);
 }
 
 toggleAddForm.addEventListener("click", function (){
@@ -61,7 +59,6 @@ function renderAlert(){
 }
 
 // Calendar data manipulation
-
 function addItem(){
 
     let eventTypeValue = document.querySelector("input[type=radio]:checked").value;
@@ -82,11 +79,9 @@ function addItem(){
 
     try {
         calendarData.push(newItem);
-        console.log('calendar updated', calendarData);
         addSuccess = true;
         renderAlert();
     } catch (error) {
-        console.log("error adding item", error)
         addSuccess = false;  
         renderAlert();
     }
@@ -96,3 +91,12 @@ function addItem(){
 confirmBtn.addEventListener("click", function (){
     addItem();
 })
+
+//rendering the list items
+function renderList(arrayData){
+    if (calendarData.length === 0){
+        mainEventRender.innerHTML = '<p style="text-align:center; color: white"> No event or action need your attention </p>';
+    } else {
+
+    }
+}

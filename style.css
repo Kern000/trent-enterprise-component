@@ -80,3 +80,13 @@ body{
     height: 10px !important;
 }
 
+/* #calendar-wrapper{
+
+} */
+
+
+@media screen and (max-width:481px) {
+    #calendar-wrapper{
+        flex-direction: column;
+    }
+}
