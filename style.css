@@ -17,8 +17,6 @@ body{
     height: 100vh;
 }
 
-
-
 #banner-wrapper{
     display: flex;
 }
@@ -37,6 +35,8 @@ body{
     width: 90%;
     z-index: 1;
     position: relative;
+    overflow-y: scroll;
+    border: 1px solid gray;
 }
 
 #crud-form{
@@ -51,8 +51,7 @@ body{
     height: 70%;
     width: 15px;
     padding: 0px;
-    text-align:center;
-    
+    text-align:center;   
 }
 
 #bottom-wrapper{
@@ -80,9 +79,14 @@ body{
     height: 10px !important;
 }
 
-/* #calendar-wrapper{
+.edit-btn {
+    
+}
 
-} */
+.delete-btn {
+
+}
+
 
 
 @media screen and (max-width:481px) {
