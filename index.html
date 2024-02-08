@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Memory Calendar </title>
+    <title> Trent Workyear Calendar </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +23,11 @@
             <button type="button" class="btn btn-primary design"></button>
             <button type="button" class="btn btn-danger design"></button>
        </div>
+       <div id="notification-container"></div>
+
 
        <div id="calendar-wrapper">
-            
+            <!-- This portion will render the added events -->
        </div>
 
        <div id="crud-form" class="card" style="width: 18rem;">
@@ -41,26 +45,35 @@
                     </div>
                 </li>
                 <li class="list-group-item">
+                    <input type="text" id="date-picker" />
+                </li>
+                <li class="list-group-item">
                     <label class="form-label" style="font-weight: 400"> Priority </label>
-                    <select id="priority" class="form-control">
-                        <option value="low"> Low </option>
-                        <option value="medium"> Medium </option>
-                        <option value="high"> High </option>
+                    <select id="priority" class="form-control form-control-sm">
+                        <option value="adhoc"> Adhoc </option>
+                        <option value="routine"> Routine </option>
+                        <option value="routine-critical"> Routine Critical </option>
+                        <option value="priority-critical"> Priority Critical </option>
                     </select>
                 </li>
                 <li class="list-group-item">
-                    <label class="form-label"> Event Name </label>
-                    <input  type="text" class="form-control"/>
+                    <label class="form-label"> Event Name / Description </label>
+                    <input id="event-desc" type="text" class="form-control form-control-sm"/>
                 </li>
                 <li class="list-group-item">
-                    <a href="#" class="btn btn-info" style="width:100%; border:1px solid black;">Add Me !</a>
+                    <label class="form-label"> Reporting Officer </label>
+                    <input id="reporting-off" type="text" class="form-control form-control-sm"/>
+                </li>
+                <li class="list-group-item">
+                    <button id="confirm-add-btn" class="btn btn-info" style="width:100%; border:1px solid black;">Add Me !</button>
                 </li>
             </ul>
         </div>
         <div id="bottom-wrapper">
-            <button id="add-btn" type="button" class="btn btn-primary"> + </button>
+            <button id="add-form-btn" type="button" class="btn btn-primary"> + </button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>

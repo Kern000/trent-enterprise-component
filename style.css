@@ -43,7 +43,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -46%);
     z-index: 2;
 }
 
@@ -62,7 +62,7 @@ body{
     padding-top: 10px;
 }
 
-#add-btn{   
+#add-form-btn{   
     color:white; 
     border-radius: 50%;
     height: 50px;
@@ -70,3 +70,13 @@ body{
     font-size: 30px;
     padding-top: 0px;
 }
+
+.list-group-item{
+    font-size: 10px;
+}
+
+#notification-container{
+    width: 90%;
+    height: 10px !important;
+}
+
