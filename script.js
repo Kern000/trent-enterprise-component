@@ -231,15 +231,16 @@ function deleteItem(itemId){
 function renderEdit(itemId){
 
     let passedValue = passValueToEditForm(itemId);
-    populateEditForm(itemId);
+    populateEditForm(itemId, passValueToEditForm(itemId));
     handleEditForm();
     console.log("render edit about to set attribute");
     confirmEdit.setAttribute("onclick", `editItem(${itemId})`);
 }
 
-function populateEditForm(itemId){
+// Structural programming here;
+function populateEditForm(itemId, passValuedToEditForm){
 
-    let editItemData = passValueToEditForm(itemId);
+    let editItemData = passValuedToEditForm;
 
     console.log("populate here", editItemData);
 
@@ -324,7 +325,7 @@ function editItem(itemId){
     calendarData = newCalender
 
     handleEditForm(); 
-    renderList(calendarData);   
+    renderList(calendarData);
 
 }
 
