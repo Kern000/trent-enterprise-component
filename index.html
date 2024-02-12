@@ -25,7 +25,6 @@
        </div>
        <div id="notification-container"></div>
 
-
        <div id="calendar-wrapper">
        </div>
 
@@ -38,7 +37,7 @@
                     <div>
                         <label class="form-label" style="font-weight: 400"> Event Type </label>
                     </div>
-                    <div>
+                    <div class="add-form-radio">
                         <input type="radio" name="event-type" value="Event" style="margin-right:2px; margin-left:2px"> Event </radio>
                         <input type="radio" name="event-type" value="Action" style="margin-right:2px; margin-left:5px"> Action </radio>
                     </div>
@@ -69,6 +68,48 @@
                 </li>
             </ul>
         </div>
+
+        <div id="edit-form" class="card" style="width: 18rem; display:none">
+            <div class="card-header" style="font-weight: 600;">
+                Edit Item
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div>
+                        <label class="form-label" style="font-weight: 400"> Event Type </label>
+                    </div>
+                    <div id="edit-form-radio">
+                        <input id="edit-radio-event" type="radio" name="event-type" value="Event" style="margin-right:2px; margin-left:2px"> Event </radio>
+                        <input id="edit-radio-action" type="radio" name="event-type" value="Action" style="margin-right:2px; margin-left:5px"> Action </radio>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <label class="form-label me-2" style="font-weight: 400"> Date </label>
+                    <input id="edit-datepick" type="text" />
+                </li>
+                <li class="list-group-item">
+                    <label class="form-label" style="font-weight: 400"> Priority </label>
+                    <select id="edit-priority" class="form-control form-control-sm">
+                        <option id="edit-adhoc-option" value="Adhoc"> Adhoc </option>
+                        <option id="edit-routine-option" value="Routine"> Routine </option>
+                        <option id="edit-routine-critical-option" value="Routine-Critical"> Routine Critical </option>
+                        <option id="edit-priority-critical-option" value="Priority-Critical"> Priority Critical </option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <label class="form-label"> Event Name / Description </label>
+                    <input id="edit-event-desc" type="text" class="form-control form-control-sm"/>
+                </li>
+                <li class="list-group-item">
+                    <label class="form-label"> Reporting Officer </label>
+                    <input id="edit-reporting-off" type="text" class="form-control form-control-sm"/>
+                </li>
+                <li class="list-group-item">
+                    <button id="confirm-edit-btn" class="btn btn-info" style="width:100%; border:1px solid black;">Save Edit</button>
+                </li>
+            </ul>
+        </div>
+
         <div id="bottom-wrapper">
             <button id="add-form-btn" type="button" class="btn btn-primary"> + </button>
         </div>
