@@ -1,37 +1,38 @@
-let calendarData =[
-    {
-        "id": 1,
-        "eventType": "Action",
-        "priority": "Routine-Critical",
-        "eventDesc": "We are going dragon boating",
-        "reportingOfficer": "meow1",
-        "eventDate": "2024-06-01"
-    },
-    {
-        "id": 2,
-        "eventType": "Action",
-        "priority": "Routine-Critical",
-        "eventDesc": "We are going dragon boating",
-        "reportingOfficer": "meow1",
-        "eventDate": "2024-05-01"
-    },
-    {
-        "id": 3,
-        "eventType": "Action",
-        "priority": "Routine-Critical",
-        "eventDesc": "We are going dragon boating",
-        "reportingOfficer": "meow1",
-        "eventDate": "2024-04-01"
-    },
-    {
-        "id": 4,
-        "eventType": "Action",
-        "priority": "Priority-Critical",
-        "eventDesc": "We are going dragon boating",
-        "reportingOfficer": "meow1",
-        "eventDate": "2024-03-01"
-    }
-];
+let calendarData;
+// let calendarData=[
+//     {
+//         "id": 1,
+//         "eventType": "Action",
+//         "priority": "Routine-Critical",
+//         "eventDesc": "We are going dragon boating",
+//         "reportingOfficer": "meow1",
+//         "eventDate": "2024-06-01"
+//     },
+//     {
+//         "id": 2,
+//         "eventType": "Action",
+//         "priority": "Routine-Critical",
+//         "eventDesc": "We are going dragon boating",
+//         "reportingOfficer": "meow1",
+//         "eventDate": "2024-05-01"
+//     },
+//     {
+//         "id": 3,
+//         "eventType": "Action",
+//         "priority": "Routine-Critical",
+//         "eventDesc": "We are going dragon boating",
+//         "reportingOfficer": "meow1",
+//         "eventDate": "2024-04-01"
+//     },
+//     {
+//         "id": 4,
+//         "eventType": "Action",
+//         "priority": "Priority-Critical",
+//         "eventDesc": "We are going dragon boating",
+//         "reportingOfficer": "meow1",
+//         "eventDate": "2024-03-01"
+//     }
+// ];
 
 let toggleAdd = false;
 let toggleEdit = false;
@@ -46,11 +47,15 @@ let toggleAddForm = document.querySelector("#add-form-btn");
 let confirmBtn = document.querySelector("#confirm-add-btn");
 let notificationContainer = document.querySelector("#notification-container");
 let mainEventRender = document.querySelector("#calendar-wrapper");
-let onLoadFlatPickr = document.addEventListener("DOMContentLoaded", function(){
+// let cloudData;
+let onLoadFlatPickr = document.addEventListener("DOMContentLoaded", async function(){
     flatpickr("#date-picker");
+    calendarData = await loadTasks();
     renderList(calendarData);
 })
 let confirmEdit = document.querySelector("#confirm-edit-btn");
+
+
 
 // Input form display
 function toggleAddStatus (){
@@ -118,8 +123,8 @@ function renderAlert(){
 // Calendar data manipulation
 function addItem(){
 
-    let eventTypeValue = document.querySelector("add-form-radio input[type=radio]:checked").value;
-    let priorityValue = document.querySelector("select").value;
+    let eventTypeValue = document.querySelector(".add-form-radio input[type=radio]:checked").value;
+    let priorityValue = document.querySelector("#priority").value;
     let eventDesc = document.querySelector("#event-desc").value;
     let reportingOfficer = document.querySelector("#reporting-off").value;
     let datePickerValue = document.querySelector("#date-picker").value;
@@ -144,6 +149,7 @@ function addItem(){
     }
     mainEventRender.appendChild(renderCard(newEntry));
     handleForm();
+    saveTasks(calendarData);
 }
 
 confirmBtn.addEventListener("click", function (){
@@ -326,6 +332,6 @@ function editItem(itemId){
 
     handleEditForm(); 
     renderList(calendarData);
-
+    saveTasks(calendarData);
 }
 
